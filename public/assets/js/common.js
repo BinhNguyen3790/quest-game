@@ -272,6 +272,9 @@ $('#call').click(function () {
 });
 $('#viewer').click(function () {
   actionBtn("choseViewer");
+  setTimeout(function () {
+    document.getElementById("modal4").style.display = "flex";
+  }, 1000);
   var licount = $(".listAns .listAns__item .listAns__row").length;
   var randomnumber = Math.floor(Math.random() * (licount + 1));
   var randomnumber1 = Math.floor(Math.random() * (licount + 1));
@@ -293,7 +296,6 @@ function actionBtn(txt) {
     document.getElementById("modal3").style.display = "none";
     $(".animsition-overlay-slide").removeClass("overlay-slide-out-top");
     $(".animsition-overlay-slide").addClass("overlay-slide-in-top");
-    document.getElementById("modal4").style.display = "flex";
   }, 1000);
 }
 
@@ -323,3 +325,11 @@ function play() {
   audio.play();
 }
 
+$(document).keydown(function (event) {
+  if (event.keyCode == 123) { // Prevent F12
+    return false;
+  } else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) { // Prevent Ctrl+Shift+I        
+    return false;
+  }
+});
+document.addEventListener('contextmenu', event => event.preventDefault());
