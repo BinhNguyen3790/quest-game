@@ -1,0 +1,7 @@
+node_modules/
+html/
+public/layouts/
+coverage/
+build/dist/
+npm-debug.log
+**/.DS_Store
